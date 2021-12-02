@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 muestraToast("La lista ha sido ordenada");
                 break;
             case R.id.opcion_acercaDe:
-                muestraAcerca();
+                muestraAcercaDe();
                 break;
         }
         return true;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), mensaje,Toast.LENGTH_SHORT).show();
     }
 
-    private void muestraAcerca(){
+    private void muestraAcercaDe(){
         AlertDialog.Builder ventanaEmergente = new AlertDialog.Builder(this);
         ventanaEmergente.setTitle("Acerca de...");
         ventanaEmergente.setMessage("Práctica 4\nVersión 1.0\nDaniel Abellán Zárate\nLicencia CC\n(Creative Commons)");
