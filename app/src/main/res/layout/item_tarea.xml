@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/tvTareaResumen"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
@@ -26,16 +26,18 @@
         android:maxLines="2"
         android:text="TextView"
         android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/ivTareaEditar"
         app:layout_constraintStart_toEndOf="@+id/ivTareaEstado"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Resumen" />
 
     <TextView
         android:id="@+id/tvTareaTecnico"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/ivTareaEditar"
         app:layout_constraintStart_toEndOf="@+id/ivTareaEstado"
         app:layout_constraintTop_toBottomOf="@+id/tvTareaResumen"
         tools:text="Técnico" />

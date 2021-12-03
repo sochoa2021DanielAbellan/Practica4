@@ -2,6 +2,14 @@
     <string name="app_name">Practica4</string>
     <string name="ordena"></string>
     <string name="acercaDe">Acerca de...</string>
+    <string name="tvSpinnerCategoria">Categoría</string>
+    <string name="tvSpinnerPrioridad">Prioridad</string>
+    <string name="tvSpinnerEstado">Estado</string>
+    <string name="tvTareaActivityTecnico">Técnico asignado</string>
+    <string name="tietTareaActivityTecnicoHint">Introduzca aquí el nombre del técnico</string>
+    <string name="tvActivityTareaDescripcion">Breve descripción</string>
+    <string name="tietTareaActivityDescripcionHint">Introduzca aquí una pequeña descripción</string>
+    <string name="tvTareaActivityResumen">Descripción</string>
     <string-array name="prioridadTarea">
         <item>Baja</item>
         <item>Media</item>

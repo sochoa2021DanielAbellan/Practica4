@@ -8,10 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import net.iessochoa.danielabellan.practica4.adapters.TareasAdapter;
 import net.iessochoa.danielabellan.practica4.model.Tarea;
@@ -19,10 +23,11 @@ import net.iessochoa.danielabellan.practica4.model.TareaViewModel;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private RecyclerView rvListaTareas;
     private TareaViewModel tareaViewModel;
     private TareasAdapter tareasAdapter;
+    private FloatingActionButton fabAnyadirTarea;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         rvListaTareas = findViewById(R.id.rvListaTareas);
+        fabAnyadirTarea = findViewById(R.id.fabAnyadirTarea);
+        fabAnyadirTarea.setOnClickListener(this);
 
         //***********RecyclerView*******************
         tareasAdapter = new TareasAdapter();
@@ -48,7 +55,15 @@ public class MainActivity extends AppCompatActivity {
                 tareasAdapter.setMiListaTareas(tareas);
             }
         });
+    }
 
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.fabAnyadirTarea:
+                Intent intent = new Intent(this, TareaActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
     @Override
