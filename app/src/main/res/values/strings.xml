@@ -2,4 +2,21 @@
     <string name="app_name">Practica4</string>
     <string name="ordena"></string>
     <string name="acercaDe">Acerca de...</string>
+    <string-array name="prioridadTarea">
+        <item>Baja</item>
+        <item>Media</item>
+        <item>Alta</item>
+    </string-array>
+    <string-array name="categoriaTarea">
+        <item>Reparación</item>
+        <item>Instalación</item>
+        <item>Mantenimiento</item>
+        <item>Comercial</item>
+        <item>otros</item>
+    </string-array>
+    <string-array name="estadoTarea">
+        <item>Abierta</item>
+        <item>En curso</item>
+        <item>Terminada</item>
+    </string-array>
 </resources>
