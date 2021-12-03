@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/ivTareaEstado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="27dp"
+        android:layout_height="23dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_star" />
+        app:srcCompat="@android:drawable/checkbox_off_background" />
 
     <TextView
         android:id="@+id/tvTareaResumen"

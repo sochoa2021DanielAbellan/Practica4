@@ -2,6 +2,10 @@ package net.iessochoa.danielabellan.practica4;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -9,12 +13,42 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import net.iessochoa.danielabellan.practica4.adapters.TareasAdapter;
+import net.iessochoa.danielabellan.practica4.model.Tarea;
+import net.iessochoa.danielabellan.practica4.model.TareaViewModel;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView rvListaTareas;
+    private TareaViewModel tareaViewModel;
+    private TareasAdapter tareasAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        rvListaTareas = findViewById(R.id.rvListaTareas);
+
+        //***********RecyclerView*******************
+        tareasAdapter = new TareasAdapter();
+        rvListaTareas.setLayoutManager(new LinearLayoutManager(this));
+        rvListaTareas.setAdapter(tareasAdapter);
+
+        //*********ViewModel**************************
+        //Recuperamos el ViewModel. Si fuese la primera vez que se ejecuta al abrir la aplicación, se crearía uno nuevo.
+        tareaViewModel = new ViewModelProvider(this).get(TareaViewModel.class);
+
+        //Hemos creado la lista como un LiveData para que si hay cambios en la lista, éstos se vayan mostrando de forma automática
+        tareaViewModel.getTareaList().observe(this, new Observer<List<Tarea>>() {
+            //@Override
+            public void onChanged(List<Tarea> tareas) {
+                //actualizamos el recyclerView si hay cambios en la lista de Notas
+                tareasAdapter.setMiListaTareas(tareas);
+            }
+        });
+
     }
 
     @Override
