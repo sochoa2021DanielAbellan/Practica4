@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="25dp"
+        android:entries="@array/categoriaTarea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvSpinnerCategoria"
         app:layout_constraintTop_toTopOf="@+id/tvSpinnerCategoria" />
@@ -43,6 +44,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
+        android:entries="@array/prioridadTarea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/spTareaCategoria"
         app:layout_constraintTop_toTopOf="@+id/tvSpinnerPrioridad" />
@@ -73,6 +75,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
+        android:entries="@array/estadoTarea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/spTareaPrioridad"
         app:layout_constraintTop_toTopOf="@+id/tvSpinnerEstado" />
@@ -86,17 +89,6 @@
         app:layout_constraintGuide_percent="0.20109439"
         app:layout_constraintTop_toBottomOf="@+id/tvSpinnerEstado" />
 
-    <TextView
-        android:id="@+id/tvActivityTareaTecnico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/tvTareaActivityTecnico"
-        app:layout_constraintBottom_toTopOf="@+id/tilTareaActivityTecnico"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivSpinnerEstado" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilTareaActivityTecnico"
         android:layout_width="0dp"
@@ -107,12 +99,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvActivityTareaTecnico">
+        app:layout_constraintTop_toTopOf="@+id/guideline3">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietTareaActivityTecnico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:hint="@string/tietTareaActivityTecnicoHint" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,17 +118,6 @@
         app:layout_constraintGuide_percent="0.35"
         app:layout_constraintTop_toBottomOf="@+id/tilTareaActivityTecnico" />
 
-    <TextView
-        android:id="@+id/tvActivityTareaDescripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/tvActivityTareaDescripcion"
-        app:layout_constraintBottom_toTopOf="@+id/tilTareaActivityDescripcion"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilTareaActivityTecnico" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilTareaActivityDescripcion"
         android:layout_width="0dp"
@@ -146,12 +128,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvActivityTareaDescripcion">
+        app:layout_constraintTop_toTopOf="@+id/guideline4">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietActivityTareaDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:hint="@string/tietTareaActivityDescripcionHint" />
     </com.google.android.material.textfield.TextInputLayout>
 

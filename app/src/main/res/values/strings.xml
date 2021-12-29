@@ -5,10 +5,8 @@
     <string name="tvSpinnerCategoria">Categoría</string>
     <string name="tvSpinnerPrioridad">Prioridad</string>
     <string name="tvSpinnerEstado">Estado</string>
-    <string name="tvTareaActivityTecnico">Técnico asignado</string>
-    <string name="tietTareaActivityTecnicoHint">Introduzca aquí el nombre del técnico</string>
-    <string name="tvActivityTareaDescripcion">Breve descripción</string>
-    <string name="tietTareaActivityDescripcionHint">Introduzca aquí una pequeña descripción</string>
+    <string name="tietTareaActivityTecnicoHint">Técnico asignado</string>
+    <string name="tietTareaActivityDescripcionHint">Breve descripción</string>
     <string name="tvTareaActivityResumen">Descripción</string>
     <string-array name="prioridadTarea">
         <item>Baja</item>
@@ -20,7 +18,7 @@
         <item>Instalación</item>
         <item>Mantenimiento</item>
         <item>Comercial</item>
-        <item>otros</item>
+        <item>Otros</item>
     </string-array>
     <string-array name="estadoTarea">
         <item>Abierta</item>
