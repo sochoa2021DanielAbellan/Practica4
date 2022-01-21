@@ -86,7 +86,7 @@ public class TareaViewModel extends AndroidViewModel {
         listaTareas.add(tarea);
         tarea=new Tarea("Baja","Reparación","En curso","Maria Lopez","Sustitución de ratones","Integer nec tincidunt turpis. Vestibulum interdum accumsan massa, sed blandit ex fringilla at.");
         listaTareas.add(tarea);
-        tarea=new Tarea("Media","Comercial","Abierta","Fele Martinez","Presentar presupuesto Web","Vivamus non sem vitae nisl viverra pharetra. Pellentesque pulvinar vestibulum risus sit amet tempor. Sed blandit arcu sed risus interdum fermentum.");
+        tarea=new Tarea("Alta","Comercial","Abierta","Fele Martinez","Presentar presupuesto Web","Vivamus non sem vitae nisl viverra pharetra. Pellentesque pulvinar vestibulum risus sit amet tempor. Sed blandit arcu sed risus interdum fermentum.");
         listaTareas.add(tarea);
         tarea=new Tarea("Media","Comercial","Abierta","Fele Martinez","Presentar presupuesto Web","Integer ornare lorem urna, eget consequat ante lacinia et. Phasellus ut diam et diam euismod convallis");
         listaTareas.add(tarea);

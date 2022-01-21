@@ -25,4 +25,5 @@
         <item>En curso</item>
         <item>Terminada</item>
     </string-array>
+    <string name="tituloBase">Nueva tarea</string>
 </resources>

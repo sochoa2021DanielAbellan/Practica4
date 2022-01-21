@@ -1,6 +1,7 @@
 package net.iessochoa.danielabellan.practica4.adapters;
 import net.iessochoa.danielabellan.practica4.R;
 import net.iessochoa.danielabellan.practica4.model.Tarea;
+import net.iessochoa.danielabellan.practica4.model.TareaViewModel;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewHolder>{
     private List<Tarea> miListaDeTareas;
+    private OnItemClickBorrarListener listenerBorrar;
+    private OnItemClickEditarListener listenerEditar;
 
     @NonNull
     @Override
@@ -88,6 +91,32 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
             ivTareaEstado = itemView.findViewById(R.id.ivTareaEstado);
             ivTareaEditar = itemView.findViewById(R.id.ivTareaEditar);
             ivTareaBorrar = itemView.findViewById(R.id.ivTareaBorrar);
+
+            ivTareaBorrar.setOnClickListener(view -> {
+                if (listenerBorrar != null)
+                    listenerBorrar.onItemBorrarClick(miListaDeTareas.get(TareaViewHolder.this.getAdapterPosition()));
+            });
+
+            ivTareaEditar.setOnClickListener(view -> {
+                if(listenerEditar != null)
+                    listenerEditar.onItemEditarClick(miListaDeTareas.get(TareaViewHolder.this.getAdapterPosition()));
+            });
         }
     }
+
+    public interface OnItemClickBorrarListener {
+        void onItemBorrarClick(Tarea tarea);
+    }
+
+    public interface OnItemClickEditarListener {
+        void onItemEditarClick(Tarea tarea);
+    }
+
+    public void setOnClickBorrarListener(OnItemClickBorrarListener listener) {
+        this.listenerBorrar = listener;
+    }
+    public void setOnClickEditarListener(OnItemClickEditarListener listener) {
+        this.listenerEditar = listener;
+    }
+
 }

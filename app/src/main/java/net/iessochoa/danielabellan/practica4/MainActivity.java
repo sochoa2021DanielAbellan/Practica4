@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,9 @@ import net.iessochoa.danielabellan.practica4.model.TareaViewModel;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    public final static int OPTION_REQUEST_NUEVO = 1;
+    public final static int OPTION_REQUEST_EDITAR = 2;
+
     private RecyclerView rvListaTareas;
     private TareaViewModel tareaViewModel;
     private TareasAdapter tareasAdapter;
@@ -55,13 +59,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tareasAdapter.setMiListaTareas(tareas);
             }
         });
+
+        //Para borrar la nota en cuestión que sea llamada
+        tareasAdapter.setOnClickBorrarListener(tarea -> {
+            borrarTarea(tarea);
+        });
+
+        tareasAdapter.setOnClickEditarListener(tarea -> {
+            Intent intent = new Intent(this, TareaActivity.class);
+            intent.putExtra(TareaActivity.EXTRA_TAREA, tarea);
+            startActivityForResult(intent, OPTION_REQUEST_EDITAR);
+        });
     }
 
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.fabAnyadirTarea:
                 Intent intent = new Intent(this, TareaActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, OPTION_REQUEST_NUEVO);
                 break;
         }
     }
@@ -85,6 +100,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            Tarea tareaRecibida = data.getParcelableExtra(TareaActivity.EXTRA_TAREA);
+
+            if (requestCode == OPTION_REQUEST_NUEVO) {
+                tareaViewModel.addTarea(tareaRecibida);
+
+                //Si es una tarea ya creada se sobrescriben los datos
+            } else if (requestCode == OPTION_REQUEST_EDITAR) {
+                tareaViewModel.addTarea(tareaRecibida);
+            }
+        }
+    }
+
     private void muestraToast(String mensaje){
         Toast.makeText(getApplicationContext(), mensaje,Toast.LENGTH_SHORT).show();
     }
@@ -97,4 +129,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ventanaEmergente.show();
     }
 
+    private void borrarTarea(final Tarea tarea) {
+        android.app.AlertDialog.Builder ventanaAvisoBorrado = new android.app.AlertDialog.Builder(MainActivity.this);
+        ventanaAvisoBorrado.setTitle("Borrando tarea...");
+        ventanaAvisoBorrado.setMessage("¿Está seguro de que desea borrar esta tarea?");
+        ventanaAvisoBorrado.setPositiveButton(android.R.string.yes, (dialogInterface, i) -> tareaViewModel.delTarea(tarea));
+        ventanaAvisoBorrado.setNegativeButton(android.R.string.no, (dialogInterface, i) -> {
+        });
+        ventanaAvisoBorrado.show();
+    }
 }
